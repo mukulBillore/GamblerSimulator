@@ -50,6 +50,7 @@ public class GamblerSimulator {
 		}
 		System.out.println("*********************************************************************************** ");
 		System.out.println("The totel stake left after a month is :"+gambler1.totelAmountLeftAfterMonth);
-		}
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+	}
 
 }
