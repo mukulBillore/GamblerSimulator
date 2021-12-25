@@ -1,6 +1,7 @@
 package com.bridgeLabs;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class GamblerSimulator {
 	int everyDayStake = 100;
@@ -8,6 +9,7 @@ public class GamblerSimulator {
 	int totelAmountLeftInDay = 0;
 	int noOFDaysPlay = 20;
 	int totelAmountLeftAfterMonth;
+
 	// empty constructor for Default Value
 	public GamblerSimulator() {
 	}
@@ -40,17 +42,26 @@ public class GamblerSimulator {
 	}
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int playOrNot=1;
 		GamblerSimulator gambler1 = new GamblerSimulator();
+while(playOrNot!=0) {
 		for (int i = 1; i <= gambler1.noOFDaysPlay; i++) {
 			gambler1.totelAmountLeftInDay = gambler1.everyDayGame(gambler1.everyDayStake, gambler1.bet);
-			gambler1.totelAmountLeftAfterMonth+=gambler1.totelAmountLeftInDay;
+			gambler1.totelAmountLeftAfterMonth += gambler1.totelAmountLeftInDay;
 			System.out.printf("In day %d the totel stake left from one day stake i.e %d is %d \n", i,
 					gambler1.everyDayStake, gambler1.totelAmountLeftInDay);
-			
+
 		}
 		System.out.println("*********************************************************************************** ");
-		System.out.println("The totel stake left after a month is :"+gambler1.totelAmountLeftAfterMonth);
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println("The totel stake left after a month is :" + gambler1.totelAmountLeftAfterMonth);
+		System.out.println(
+				"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println("write 'true' you want to play again else enter 'false' : ");
+		 playOrNot = sc.nextInt();
+		 
+}
+		
 	}
 
 }
