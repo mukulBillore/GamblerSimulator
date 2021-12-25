@@ -5,32 +5,51 @@ import java.util.Random;
 public class GamblerSimulator {
 	int everyDayStake = 100;
 	int bet = 1;
-
+	int totelAmountLeftInDay = 0;
+	int noOFDaysPlay = 20;
+	int totelAmountLeftAfterMonth;
 	// empty constructor for Default Value
 	public GamblerSimulator() {
 	}
 
-	public GamblerSimulator(int stake, int bet) {
+	public GamblerSimulator(int everyDayStake, int bet, int totelAmountLeftInDay, int noOFDaysPlay) {
 		super();
-		everyDayStake = stake;
+		this.everyDayStake = everyDayStake;
 		this.bet = bet;
+		totelAmountLeftInDay = totelAmountLeftInDay;
+		this.noOFDaysPlay = noOFDaysPlay;
+	}
+
+//this fuction counts the every day  stake left in gamblers hand 	  
+	public int everyDayGame(int stake, int bet) {
+
+		Random rand = new Random();
+		while (stake < 150 && stake > 50) {
+			int winOrLoose = rand.nextInt(2);
+			// win
+			if (winOrLoose == 0) {
+				stake = stake + bet;
+
+			} // loose
+			else {
+				stake = stake - bet;
+			}
+		}
+
+		return stake;
 	}
 
 	public static void main(String[] args) {
 		GamblerSimulator gambler1 = new GamblerSimulator();
-		Random rand = new Random();
-		
-		while (gambler1.everyDayStake < 150 && gambler1.everyDayStake>50) {
-			int winOrLoose = rand.nextInt(2);
-			// win
-			if (winOrLoose == 0) {
-				gambler1.everyDayStake = gambler1.everyDayStake + gambler1.bet;
-
-			} // loose
-			else {
-				gambler1.everyDayStake = gambler1.everyDayStake - gambler1.bet;
-			}
-		}System.out.println("The totel stake after game of every day stake is "+gambler1.everyDayStake );
-	}
+		for (int i = 1; i <= gambler1.noOFDaysPlay; i++) {
+			gambler1.totelAmountLeftInDay = gambler1.everyDayGame(gambler1.everyDayStake, gambler1.bet);
+			gambler1.totelAmountLeftAfterMonth+=gambler1.totelAmountLeftInDay;
+			System.out.printf("In day %d the totel stake left from one day stake i.e %d is %d \n", i,
+					gambler1.everyDayStake, gambler1.totelAmountLeftInDay);
+			
+		}
+		System.out.println("*********************************************************************************** ");
+		System.out.println("The totel stake left after a month is :"+gambler1.totelAmountLeftAfterMonth);
+		}
 
 }
