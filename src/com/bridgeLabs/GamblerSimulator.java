@@ -20,7 +20,7 @@ public class GamblerSimulator {
 		this.noOFDaysPlay = noOFDaysPlay;
 	}
 
-//this fuction counts the every day  stake left in gamblers hand 	  
+//this fuction counts the every day  stake left in gamblers hand after one day game 
 	public int everyDayGame(int stake, int bet) {
 
 		Random rand = new Random();
